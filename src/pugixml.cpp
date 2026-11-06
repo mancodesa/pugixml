@@ -4852,7 +4852,8 @@ PUGI_IMPL_NS_BEGIN
 		// early-out for empty documents to avoid buffer allocation overhead
 		if (size == 0)
 		{
-			xml_parse_result result = make_parse_result((options & parse_fragment) ? status_ok : status_no_document_element);
+			const bool fragment = (options & parse_fragment) != 0;
+			xml_parse_result result = make_parse_result(fragment ? status_ok : status_no_document_element);
 			result.encoding = buffer_encoding;
 			return result;
 		}
