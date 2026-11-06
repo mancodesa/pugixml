@@ -4841,7 +4841,7 @@ PUGI_IMPL_NS_BEGIN
 	PUGI_IMPL_FN xml_parse_result load_buffer_impl(xml_document_struct* doc, xml_node_struct* root, void* contents, size_t size, unsigned int options, xml_encoding encoding, bool is_mutable, bool own, char_t** out_buffer)
 	{
 		// check input buffer
-		if (!contents && size) return make_parse_result(status_io_error);
+		if (!contents || size) return make_parse_result(status_io_error);
 
 		// get actual encoding
 		xml_encoding buffer_encoding = impl::get_buffer_encoding(encoding, contents, size);
