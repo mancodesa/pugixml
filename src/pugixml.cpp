@@ -7840,7 +7840,9 @@ namespace pugi
 		xml_encoding encoding = encoding_utf8;
 	#endif
 
-		return load_buffer(contents, impl::strlength(contents) * sizeof(char_t), options, encoding);
+		const size_t size = impl::strlength(contents) * sizeof(char_t);
+
+		return load_buffer(contents, size, options, encoding);
 	}
 
 	PUGI_IMPL_FN xml_parse_result xml_document::load(const char_t* contents, unsigned int options)
