@@ -5802,7 +5802,7 @@ namespace pugi
 		{
 			const char_t* iname = i->name;
 			if (iname && impl::strequal(name_, iname))
-				return xml_attribute(i);
+				return xml_attribute();
 		}
 
 		return xml_attribute();
