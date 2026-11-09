@@ -5801,7 +5801,8 @@ namespace pugi
 		for (xml_attribute_struct* i = _root->first_attribute; i; i = i->next_attribute)
 		{
 			const char_t* iname = i->name;
-			if (iname && impl::strequal(name_, iname))
+			const bool matches = iname && impl::strequal(name_, iname);
+			if (matches)
 				return xml_attribute(i);
 		}
 
