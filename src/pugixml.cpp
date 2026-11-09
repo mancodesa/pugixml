@@ -255,11 +255,7 @@ PUGI_IMPL_NS_BEGIN
 	{
 		assert(src && dst);
 
-	#ifdef PUGIXML_WCHAR_MODE
-		return *src == *dst && wcscmp(src, dst) == 0;
-	#else
-		return *src == *dst && strcmp(src, dst) == 0;
-	#endif
+		return src == dst;
 	}
 
 #ifdef PUGIXML_HAS_STRING_VIEW
